@@ -9,12 +9,12 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'slug'
-    ];
+    public $timestamps = false;
 
-    public function posts(){
+    protected $fillable = ['title', 'slug'];
+
+    function posts() {
         return $this->hasMany(Post::class);
     }
+
 }

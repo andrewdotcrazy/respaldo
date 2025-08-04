@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use function Laravel\Prompts\text;
+
 return new class extends Migration
 {
     /**
@@ -15,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title',500);
             $table->string('slug',500);
-            $table->string('description')->nullable();
-            $table->string('content')->nullable();
+            $table->text('description')->nullable();
+            $table->text('content')->nullable();
             $table->string('image')->nullable();
             $table->enum('posted', ['yes', 'not'])->default('not');
             $table->foreignId('category_id')->constrained()
